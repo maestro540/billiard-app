@@ -1,0 +1,36 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:15
+    container_name: billiard_db
+    environment:
+      POSTGRES_USER: billiard
+      POSTGRES_PASSWORD: billiard123
+      POSTGRES_DB: billiard_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U billiard -d billiard_db"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  backend:
+    build: ./backend
+    container_name: billiard_backend
+    ports:
+      - "8000:8000"
+    environment:
+      DATABASE_URL: postgresql://billiard:billiard123@db:5432/billiard_db
+    depends_on:
+      db:
+        condition: service_healthy
+    volumes:
+      - ./backend/app:/app/app
+    restart: unless-stopped
+
+volumes:
+  postgres_data:

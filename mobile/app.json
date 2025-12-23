@@ -1,0 +1,22 @@
+{
+  "expo": {
+    "name": "Billiard Tracker",
+    "slug": "billiard-tracker",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "dark",
+    "backgroundColor": "#1a1a2e",
+    "splash": {
+      "backgroundColor": "#1a1a2e"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "package": "com.billiardtracker.app"
+    }
+  }
+}
