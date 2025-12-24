@@ -17,6 +17,11 @@
     },
     "android": {
       "package": "com.billiardtracker.app"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "e9ef03c6-14ef-40a9-b962-3e9af74176ee"
+      }
     }
   }
 }
