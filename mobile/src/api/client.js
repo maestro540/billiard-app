@@ -2,7 +2,7 @@ import axios from 'axios';
 
 // ВАЖНО: замени на свой IP адрес!
 // Узнать IP: в терминале набери "ifconfig" и найди en0 -> inet
-const API_URL = 'http://10.162.115.171:8000';
+const API_URL = 'https://billiard-app-production.up.railway.app';
 
 const api = axios.create({
   baseURL: API_URL,
